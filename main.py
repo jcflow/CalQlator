@@ -1,18 +1,15 @@
-import pathlib
-import os
 import sys
 import clr
+import utils
 from PyQt5.QtWidgets import *
 from Views.main_window import MainWindow
-current_path = pathlib.Path().absolute()
-assembly_path = os.path.join(current_path, "build")
-sys.path.append(assembly_path)
+sys.path.append(utils.resource_path('build'))
 clr.AddReference('Models')
 from Controllers.main_controller import MainController
 
 if __name__ == '__main__':
     app = QApplication([])
-    app.setApplicationName("CalQlator")
+    app.setApplicationName('CalQlator')
     window = MainWindow()
     controller = MainController(window)
     window.show()

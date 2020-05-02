@@ -1,12 +1,13 @@
 import traceback
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
+import utils
 
 
 class MainWindow(QMainWindow):
     def __init__(self, *args, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
-        uic.loadUi('Views/main_window.ui', self)
+        uic.loadUi(utils.resource_path('Views/main_window.ui'), self)
 
     def show_error_message(self, error):
         self.setDisabled(True)
