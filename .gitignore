@@ -1,0 +1,5 @@
+.idea/
+.vs/
+Models/bin/
+Models/obj/
+build/
