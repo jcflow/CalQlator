@@ -3,3 +3,6 @@
 Models/bin/
 Models/obj/
 build/
+Controllers/__pycache__/
+Views/__pycache__/
+
