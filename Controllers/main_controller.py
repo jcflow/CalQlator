@@ -1,10 +1,13 @@
+import threading
 from Controllers.constants import *
 from clr import Models
+from Controllers.voice_controller import VoiceController
 
 
 class MainController:
     def __init__(self, window):
         self.calculator_manager = Models.DisplayableCalculatorController()
+        self.voice_controller = VoiceController()
         self.window = window
 
         # Setup digits.
@@ -32,7 +35,23 @@ class MainController:
             getattr(self.window, name).pressed.connect(
                 lambda nst=numeric_system_type: self.numeric_system_press(nst))
 
+        # Setup recorder.
+        self.window.pushButton_record.pressed.connect(self.record_press)
+
         self.refresh_ui()
+
+    def record_press(self):
+        try:
+            value = []
+            thread = threading.Thread(target=lambda: value.append(self.voice_controller.record()))
+            thread.start()
+            thread.join()
+            if len(value) == 0:
+                raise Exception('Audio could not be recognized.')
+            self.voice_controller.execute(self, value[0])
+        except Exception as error:
+            self.window.show_error_message(error)
+            self.reset()
 
     def refresh_ui(self):
         self.refresh_numeric_system()

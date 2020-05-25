@@ -6,7 +6,7 @@ block_cipher = None
 a = Analysis(['main.py'],
              pathex=['/Users/jcflow/Projects/CalQlator'],
              binaries=[],
-             datas=[('/usr/local/lib/python3.7/site-packages/Python.Runtime.dll', '.'), ('build/Models.dll', '.'), ('Views/main_window.ui', 'Views')],
+             datas=[('/usr/local/lib/python3.7/site-packages/Python.Runtime.dll', '.'), ('build/Models.dll', '.'), ('Views/main_window.ui', 'Views'), ('Controllers/dictionary.json', 'Controllers')],
              hiddenimports=['clr'],
              hookspath=[],
              runtime_hooks=[],
@@ -30,7 +30,7 @@ exe = EXE(pyz,
           upx=True,
           upx_exclude=[],
           runtime_tmpdir=None,
-          console=False , icon='icon.icns')
+          console=False , icon='docs/icon.icns')
 app = BUNDLE(exe,
              name='CalQlator.app',
              icon='icon.icns',

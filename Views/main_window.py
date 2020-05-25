@@ -15,7 +15,7 @@ class MainWindow(QMainWindow):
         msg.setIcon(QMessageBox.Critical)
 
         msg.setText("Last operation threw an error!")
-        msg.setInformativeText(error.Message if hasattr(error, 'Message') else error)
+        msg.setInformativeText(error.Message if hasattr(error, 'Message') else str(error))
         msg.setWindowTitle("CalQlator")
         msg.setDetailedText("The details are as follows: \n%s" %
                             error.get_StackTrace() if hasattr(error, 'get_StackTrace') else traceback.format_exc())

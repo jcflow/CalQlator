@@ -1,0 +1,5 @@
+pythonnet==2.4.0
+PyQt5==5.14.2
+SpeechRecognition==3.8.1
+PyAudio==0.2.11
+PyInstaller==3.6
