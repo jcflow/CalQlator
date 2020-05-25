@@ -1,8 +1,9 @@
 # CalQlator
 
 CalQlator is a calculator capable to change its numeric system to BIN, OCT, DEC and HEX. Also it includes a lot of useful operations.
-
-![](docs/test.gif)
+<p align="center">
+  <img src="docs/test.gif">
+</p>
 
 ## Built With
 
